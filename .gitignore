@@ -1,0 +1,11 @@
+## EDITORS
+.*.sw[op]
+*~
+
+## Ruby
+/Gemfile.lock
+/.ruby-*
+
+## Vagrant
+/.vagrant/
+/vagrant/modules/

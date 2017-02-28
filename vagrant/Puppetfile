@@ -1,0 +1,13 @@
+forge 'https://forge.puppet.com'
+
+mod 'icinga/icinga2'
+mod 'icinga/icingaweb2'
+
+mod 'lazyfrosch/vagrantenv'
+
+mod 'puppet/alternatives'
+
+mod 'puppetlabs/apache'
+mod 'puppetlabs/concat'
+mod 'puppetlabs/inifile'
+mod 'puppetlabs/stdlib'
