@@ -1,0 +1,26 @@
+---
+- name: icinga.com
+  address: icinga.com
+  vars:
+    application: http-sites
+    http_ssl: true
+
+- name: pivotal.io
+  address: pivotal.io
+  import: Dummy Host
+  vars:
+    application: http-sites
+    http_ssl: true
+    noping: true
+
+- name: www.google.com
+  address: www.google.com
+  vars:
+    application: http-sites
+    http_ssl: true
+
+- name: google-public-dns-a.google.com
+  address: 8.8.8.8
+
+- name: google-public-dns-b.google.com
+  address: 8.8.4.4
