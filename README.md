@@ -1,5 +1,5 @@
-Vagrant Icinga Director
-=======================
+Vagrant Icinga Director Demo
+============================
 
 This is a test and demo environment for Icinga Director.
 
@@ -37,10 +37,21 @@ You can bring up the Vagrant boxes like this:
 Apply changes in the Puppet or hiera data:
 
     vagrant provision
+    
+## Demo Data
+
+In `demo-data/` you will find an example for YAML import data.
+
+    cp /vagrant/demo-data/test.yaml /opt/import
+
+As well as a snapshot of a filled Icinga director database.
+
+    mysql director < /vagrant/demo-data/director-with-data.sql
 
 ## License
 
-    Copyright (C) 2017 Markus Frosch <markus@lazyfrosch.de>
+    Copyright (C) 2017 Markus Frosch <markus.frosch@icinga.com>
+                  2017 Icinga Development Team <info@icinga.com>
 
     This program is free software; you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
