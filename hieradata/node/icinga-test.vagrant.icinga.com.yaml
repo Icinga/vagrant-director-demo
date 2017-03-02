@@ -1,3 +1,83 @@
 ---
-#classes:
-#  - icinga2
+classes:
+  - role::master
+
+
+## MySQL
+mysql::server::databases:
+  icinga2:
+    ensure: present
+  icingaweb2:
+    ensure: present
+  director:
+    ensure: present
+
+mysql::server::users:
+  icinga2@localhost:
+    ensure: present
+    password_hash: '*5BA16F806FC43B5F301560CC1BE9C466EF142DFC' # icinga2
+  icingaweb2@localhost:
+    ensure: present
+    password_hash: '*418AAA389938320F250C37CD37EA6697ECA214CB' # icingaweb2
+  director@localhost:
+    ensure: present
+    password_hash: '*23060A5D605877F7E09E02F4A00DE06D8A931CB3' # director
+
+mysql::server::grants:
+  'icinga2@localhost/icinga2.*':
+    user: 'icinga2@localhost'
+    table: 'icinga2.*'
+    privileges:
+      - ALL
+  'icingaweb2@localhost/icingaweb2.*':
+    user: 'icingaweb2@localhost'
+    table: 'icingaweb2.*'
+    privileges:
+      - ALL
+  'director@localhost/director.*':
+    user: 'director@localhost'
+    table: 'director.*'
+    privileges:
+      - ALL
+
+
+## Icinga2
+icinga2::manage_repo: true
+icinga2::feature::idomysql::database: icinga2
+icinga2::feature::idomysql::user: icinga2
+icinga2::feature::idomysql::password: icinga2
+icinga2::feature::idomysql::import_schema: true
+
+icinga2::feature::api::zones:
+  director-global:
+    global: true
+  master:
+    endpoints:
+      - 'NodeName'
+
+icinga2::object::apiuser:
+  director:
+    password: director
+    permissions:
+      - '*'
+
+## Icingaweb2
+icingaweb2::manage_apache_vhost: true
+icingaweb2::initialize: true
+icingaweb2::db_name: icingaweb2
+icingaweb2::db_user: icingaweb2
+icingaweb2::db_pass: icingaweb2
+icingaweb2::ido_db_name: icinga2
+icingaweb2::ido_db_user: icinga2
+icingaweb2::ido_db_pass: icinga2
+icingaweb2::config_dir_mode: '2770'
+icingaweb2::config_file_mode: '0660'
+
+icingaweb2::config::resource_database:
+  director:
+    resource_db: mysql
+    resource_dbname: director
+    resource_host: localhost
+    resource_username: director
+    resource_password: director
+    resource_charset: utf8

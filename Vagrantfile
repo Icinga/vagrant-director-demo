@@ -14,7 +14,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.define 'icinga-test' do |host|
-    host.vm.hostname = "icinga-test.vagrant.icinga.com"
+    host.vm.hostname = 'icinga-test.vagrant.icinga.com'
     host.vm.network 'forwarded_port', guest: 80, host: 8080
     # host.vm.network 'private_network', ip: '192.168.33.10'
   end
@@ -24,7 +24,7 @@ Vagrant.configure(2) do |config|
   end
 
   config.vm.provision 'puppet' do |puppet|
-    puppet.options           = '--show_diff'
+    puppet.options           = '--show_diff --disable_warnings=deprecations'
     puppet.environment       = 'vagrant'
     puppet.environment_path  = '.'
     puppet.hiera_config_path = 'hiera.yaml'

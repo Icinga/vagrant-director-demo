@@ -1,13 +1,19 @@
 forge 'https://forge.puppet.com'
 
 mod 'icinga/icinga2'
-mod 'icinga/icingaweb2'
+mod 'icinga/icingaweb2',
+  git: 'https://github.com/Icinga/puppet-icingaweb2'
 
 mod 'lazyfrosch/vagrantenv'
+mod 'lazyfrosch/vagrantssl',
+  git: 'https://github.com/lazyfrosch/puppet-vagrantssl'
 
 mod 'puppet/alternatives'
+mod 'puppet/archive'
 
 mod 'puppetlabs/apache'
+mod 'puppetlabs/apt'
 mod 'puppetlabs/concat'
 mod 'puppetlabs/inifile'
+mod 'puppetlabs/mysql'
 mod 'puppetlabs/stdlib'
