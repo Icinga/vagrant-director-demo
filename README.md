@@ -7,7 +7,7 @@ This is a test and demo environment for Icinga Director.
 
 Checkout this repository
 
-    git clone https://github.com/lazyfrosch/vagrant-icinga-director.git
+    git clone https://github.com/icinga/vagrant-icinga-director.git
 
 Install required ruby tools:
 
