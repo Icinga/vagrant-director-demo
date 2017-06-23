@@ -38,12 +38,12 @@ Start all Vagrant boxes:
 Apply changes in Puppet or hiera data:
 
     vagrant provision
-    
+
 ## Demo Data
 
 You can find an example for YAML import data in the `demo-data/` directory.
 
-    cp /vagrant/demo-data/test.yaml /opt/import
+    cp /vagrant/demo-data/test.yaml /opt/import/
 
 It also includes a database dump with additional Director sample data.
 
