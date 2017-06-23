@@ -16,7 +16,11 @@ class profile::icinga2 {
     force   => true,
   }
 
-  create_resources('icinga2::object::apiuser', hiera_hash('icinga2::object::apiuser', { }), {
-    target => '/etc/icinga2/conf.d/apiusers.conf',
-  })
+  create_resources('icinga2::object::apiuser', hiera_hash('icinga2::object::apiuser', { }),
+    {
+      target => '/etc/icinga2/conf.d/apiusers.conf',
+    }
+  )
+
+  ensure_packages(['monitoring-plugins', 'monitoring-plugins-standard'])
 }
