@@ -2,7 +2,8 @@ forge 'https://forge.puppet.com'
 
 mod 'icinga/icinga2'
 mod 'icinga/icingaweb2',
-  git: 'https://github.com/Icinga/puppet-icingaweb2'
+  git: 'https://github.com/Icinga/puppet-icingaweb2',
+  branch: 'v1'
 
 mod 'lazyfrosch/vagrantenv'
 mod 'lazyfrosch/vagrantssl',
