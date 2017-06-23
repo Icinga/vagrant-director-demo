@@ -1,7 +1,6 @@
 class profile::icingaweb2 {
   include ::profile::webserver
 
-  Class['::icinga2::repo'] ->
   class { '::icingaweb2':
     install_method => 'package',
   }
