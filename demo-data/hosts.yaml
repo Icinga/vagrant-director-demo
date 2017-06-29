@@ -1,0 +1,37 @@
+---
+- name: icinga.com
+  address: icinga.com
+  import: Standard Host
+  vars:
+    application: webserver-ssl
+    http_vhost: www.icinga.com
+
+- name: amsterdam.nl
+  address: amsterdam.nl
+  import: Dummy Host
+  vars:
+    application: webserver-ssl
+    noping: true
+    http_vhost: www.amsterdam.nl
+
+- name: iamsterdam.com
+  address: iamsterdam.com
+  import: Dummy Host
+  vars:
+    application: webserver-ssl
+    noping: true
+    http_vhost: www.iamsterdam.com
+
+- name: www.google.com
+  address: www.google.com
+  import: Standard Host
+  vars:
+    application: http-sites
+
+- name: google-public-dns-a.google.com
+  import: Standard Host
+  address: 8.8.8.8
+
+- name: google-public-dns-b.google.com
+  import: Standard Host
+  address: 8.8.4.4

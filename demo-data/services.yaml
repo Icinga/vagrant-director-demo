@@ -1,0 +1,9 @@
+---
+- id: icinga.com!http icingacamp ams
+  host: icinga.com
+  name: http icingacamp ams
+  import: http
+  vars:
+    http_ssl: true
+    http_uri: /community/events/icinga-camp-amsterdam/
+    http_string: 27th of June
